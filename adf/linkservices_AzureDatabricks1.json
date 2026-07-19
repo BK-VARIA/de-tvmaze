@@ -1,0 +1,18 @@
+{
+    "name": "AzureDatabricks1",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "https://adb-7405608505308821.1.azuredatabricks.net",
+            "authentication": "MSI",
+            "workspaceResourceId": "/subscriptions/4ecb895b-1fbe-49a9-837a-d6fc2166b4d8/resourceGroups/rg-de-dev/providers/Microsoft.Databricks/workspaces/tvmaze-adls-dev",
+            "newClusterNodeType": "Standard_D4s_v3",
+            "newClusterNumOfWorker": "1",
+            "newClusterVersion": "17.3.x-scala2.13",
+            "clusterOption": "Fixed",
+            "newClusterInitScripts": []
+        }
+    }
+}
