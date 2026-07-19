@@ -95,9 +95,9 @@ Pytest configuration that handles:
 ```
 TV Maze API
     ↓
-nb_tvmaze_api_data_fatch (Bronze Ingestion)  - Azure data Lake storage
+nb_tvmaze_api_data_fatch (Bronze Ingestion)  
     ↓
-Bronze Layer (Raw Data)
+Bronze Layer (Raw Data) - Azure data Lake storage
     ↓
 nb_tvmaze_bronze_dp (Validation)
     ↓
