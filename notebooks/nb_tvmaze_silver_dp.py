@@ -4,7 +4,7 @@
 # COMMAND ----------
 
 
-bz_shows = spark.table(f'{catalog}.{bronze_schema_name}.bronze_shows')
+bz_shows = spark.table(f'{bronze_schema_name}.bronze_shows')
 silver_shows = (bz_shows.select(
         col('show_id'),
         trim(col('show_name')).alias('show_name'),
@@ -34,8 +34,8 @@ silver_shows = silver_shows.drop('genres')
 
 # COMMAND ----------
 
-bz_eps  = spark.table(f'{catalog}.{bronze_schema_name}.bronze_episodes')
-bz_cast = spark.table(f'{catalog}.{bronze_schema_name}.bronze_cast')
+bz_eps  = spark.table(f'{bronze_schema_name}.bronze_episodes')
+bz_cast = spark.table(f'{bronze_schema_name}.bronze_cast')
 silver_episodes = (bz_eps.select(
         col('episode_id'),
         col('show_id'),
@@ -71,10 +71,10 @@ save_silver(silver_cast,        'silver_cast')
 
 # COMMAND ----------
 
-shows  = spark.table(f'{catalog}.{silver_schema_name}.silver_shows')
-genres = spark.table(f'{catalog}.{silver_schema_name}.silver_show_genres')
-eps    = spark.table(f'{catalog}.{silver_schema_name}.silver_episodes')
-cast   = spark.table(f'{catalog}.{silver_schema_name}.silver_cast')
+shows  = spark.table(f'{silver_schema_name}.silver_shows')
+genres = spark.table(f'{silver_schema_name}.silver_show_genres')
+eps    = spark.table(f'{silver_schema_name}.silver_episodes')
+cast   = spark.table(f'{silver_schema_name}.silver_cast')
 fact_show_data = (eps.alias('e')
     # shows & cast are small dimensions -> BROADCAST to avoid shuffles
     .join(broadcast(shows.alias('s')),  col('e.show_id') == col('s.show_id'))
@@ -90,9 +90,9 @@ fact_show_data = (eps.alias('e')
 fact_show_data.write.format('delta').mode('overwrite')\
     .option('overwriteSchema','true')\
     .partitionBy('language')\
-    .saveAsTable(f'{catalog}.{silver_schema_name}.fact_show_data')
+    .saveAsTable(f'{silver_schema_name}.fact_show_data')
     
-print('fact rows:', spark.table(f'{catalog}.{silver_schema_name}.fact_show_data').count())
+print('fact rows:', spark.table(f'{silver_schema_name}.fact_show_data').count())
 
 # COMMAND ----------
 
@@ -146,6 +146,6 @@ joined = eps_salted.join(cast_salted, ['show_id', 'salt']).drop('salt')
 
 # # Example: Enable liquid clustering for a Delta table
 # spark.sql(f"""
-#   ALTER TABLE {catalog}.{silver_schema_name}.fact_show_data
+#   ALTER TABLE {silver_schema_name}.fact_show_data
 #   SET TBLPROPERTIES ('delta.liquidClustering.enabled' = 'true')
 # """)
