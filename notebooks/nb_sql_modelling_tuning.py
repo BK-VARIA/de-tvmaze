@@ -1,7 +1,5 @@
 # Databricks notebook source
-spark.sql("USE CATALOG tvmaze_adls_dev")
-silver_schema_name = 'silver'
-gold_schema_name = 'gold'
+%run ./nb_common_function
 
 # COMMAND ----------
 
