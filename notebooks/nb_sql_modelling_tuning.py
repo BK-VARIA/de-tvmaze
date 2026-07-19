@@ -1,5 +1,5 @@
 # Databricks notebook source
-%run ./nb_common_function
+# MAGIC %run ./nb_common_function
 
 # COMMAND ----------
 
