@@ -43,7 +43,6 @@ Orchestrates 4 sequential Databricks notebook activities:
 
 Each activity:
 - Runs on Azure Databricks cluster
-- Has a 12-hour timeout
 - Requires successful completion of the previous step
 - Executes independently isolated notebooks
 
