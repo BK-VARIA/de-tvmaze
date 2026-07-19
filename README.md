@@ -26,7 +26,6 @@ de-tvmaze/
 ├── adf/
 │   ├── pl_tvmaze_end_to_end.json         # Azure Data Factory pipeline orchestration
 │   ├── linkservices_AzureDatabricks1.json # Azure Databricks linked service config
-│   └── notebooks/                         # Databricks notebooks
 └── notebooks/                             # Workspace for notebook development
 ```
 
