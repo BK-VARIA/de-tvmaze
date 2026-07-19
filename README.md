@@ -1,10 +1,10 @@
 # de-tvmaze: Data Engineering Pipeline for TV Maze API
 
-A comprehensive data engineering solution that fetches TV show and episode data from the [TV Maze API](https://www.tvmaze.com/api), processes it through multiple transformation layers using Apache Spark, and orchestrates the entire pipeline using Azure Data Factory.
+A comprehensive data engineering solution that fetches TV show and episode data from the [TV Maze API](https://www.tvmaze.com/api), processes it through multiple transformation layers using Apache Spark on Azure Databricks.
 
 ## 📋 Project Overview
 
-This project implements a modern medallion architecture (Bronze → Silver → Gold) data pipeline on Azure Databricks. It extracts real-time TV show data from the TV Maze API and transforms it into clean, enriched datasets for analytics and reporting.
+This project implements a modern medallion architecture (Bronze → Silver → Gold) data pipeline on Azure Databricks. It extracts real-time TV show data from the TV Maze API and transforms it into clean, validated, and analytics-ready datasets.
 
 ### Architecture
 
@@ -26,8 +26,8 @@ de-tvmaze/
 ├── adf/
 │   ├── pl_tvmaze_end_to_end.json         # Azure Data Factory pipeline orchestration
 │   ├── linkservices_AzureDatabricks1.json # Azure Databricks linked service config
-│   └── ntebooks/                          # Databricks notebooks
-└── ntebooks/                              # Workspace for notebook development
+│   └── notebooks/                         # Databricks notebooks
+└── notebooks/                             # Workspace for notebook development
 ```
 
 ## 🔧 Components
