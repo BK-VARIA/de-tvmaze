@@ -36,7 +36,7 @@ Located in `adf/pl_tvmaze_end_to_end.json`
 
 Orchestrates 4 sequential Databricks notebook activities:
 
-1. **nb_tvmaze_api_data_fatch** - Fetches raw data from TV Maze API
+1. **nb_tvmaze_api_data_fatch** - Fetches raw data from TV Maze API saving the data in ADLS raw layer.
 2. **nb_tvmaze_bronze_dp** - Bronze layer processing (raw data storage)
 3. **nb_tvmaze_silver_dp** - Silver layer processing (data cleaning & validation)
 4. **nb_tvmaze_gold_dp** - Gold layer processing (aggregated analytics data)
