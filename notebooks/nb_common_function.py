@@ -11,7 +11,7 @@ from pyspark.sql.window import Window
 
 # COMMAND ----------
 
-spark.sql(f"USE CATALOG tvmaze_adls_dev")
+spark.sql("USE CATALOG tvmaze_adls_dev")
 
 # Flatten selected fields (shows have nested _links, network, etc.)
 
