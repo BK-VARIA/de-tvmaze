@@ -83,7 +83,7 @@ HAVING COUNT(DISTINCT s.show_id)"""
 # MAGIC - index on shows(show_id)
 # MAGIC - ZORDER BY (show_id) + partition on air_date month
 # MAGIC
-# MAGIC ### filter early 
+# MAGIC ### filter sargable
 # MAGIC - airdate >= '2024-01-01' is sargable: the optimizer pushes it to the storage scan (index seek /Delta file pruning) 
 # MAGIC - YEAR(airdate)=2024 wraps the column in a function, forcing a full scan of
 # MAGIC every row before filtering.
