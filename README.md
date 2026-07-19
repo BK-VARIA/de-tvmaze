@@ -82,37 +82,20 @@ Pytest configuration that handles:
 
 - Azure subscription with Databricks workspace
 - Azure Data Factory instance
+- Azure Data Lake
+- Configure manage identity
+- Databricks configure manage identity cedentials and external Locations 
 - TV Maze API access (free, no authentication required)
 - Python 3.7+
 - Apache Spark 2.4+
 
-### Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/BK-VARIA/de-tvmaze.git
-   cd de-tvmaze
-   ```
-
-2. **Configure Azure Databricks**
-   - Upload notebooks to Databricks workspace
-   - Update notebook paths in `adf/pl_tvmaze_end_to_end.json` if needed
-
-3. **Deploy Azure Data Factory**
-   - Import the pipeline JSON files into your ADF instance
-   - Configure linked service for Azure Databricks
-
-4. **Run Tests**
-   ```bash
-   pytest test_clean_episodes_quality.py -v
-   ```
 
 ## 📊 Data Flow
 
 ```
 TV Maze API
     ↓
-nb_tvmaze_api_data_fatch (Bronze Ingestion)
+nb_tvmaze_api_data_fatch (Bronze Ingestion)  - Azure data Lake storage
     ↓
 Bronze Layer (Raw Data)
     ↓
@@ -192,7 +175,7 @@ Contributions are welcome! Please ensure:
 
 ## 📄 License
 
-This project is open source and available under the MIT License.
+This project is open source and available for use.
 
 ## 👤 Author
 
